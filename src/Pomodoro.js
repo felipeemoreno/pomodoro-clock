@@ -75,21 +75,18 @@ class Pomodoro extends Component{
    stop() {
     clearInterval(this.timerID);
     this.setState({
+      pause: false,
       mode: null,
       timeStart: null,
       timePause: null,
       minutes: 0,
-      seconds: 0,
-      pause: false
+      seconds: 0
     })
    }
 
    shouldComponentUpdate(nextProps, nextState){
-    if (this.state.pause)
-      return false;
 
-
-    if(this.state.mode === "trabalhando" && this.state.minutes >= this.state.timeWorking){
+    if(this.state.mode === "trabalhando" && this.state.minutes >= this.state.timeWorking && !this.state.pause){
       this.stop();
       this.setState({
         mode: "descansando",
@@ -97,7 +94,7 @@ class Pomodoro extends Component{
       this.start();
     }
 
-    if(this.state.mode === "descansando" && this.state.minutes >= this.state.timeResting){
+    if(this.state.mode === "descansando" && this.state.minutes >= this.state.timeResting && !this.state.pause){
       this.stop();
       this.setState({
         mode: "trabalhando",

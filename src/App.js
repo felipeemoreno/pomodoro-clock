@@ -1,7 +1,10 @@
+import Pomodoro from "./Pomodoro";
+import './App.css';
+
 function App() {
   return (
-    <div>
-      
+    <div className="app">
+      <Pomodoro/>
     </div>
   );
 }

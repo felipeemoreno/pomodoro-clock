@@ -40,7 +40,7 @@ class Pomodoro extends Component{
        return false;
      } else if(this.state.timeStart === null && this.state.mode === null ) {
       this.setState({
-        mode: "working",
+        mode: "trabalhando",
        });
      }
 
@@ -89,18 +89,18 @@ class Pomodoro extends Component{
       return false;
 
 
-    if(this.state.mode === 'working' && this.state.minutes >= this.state.timeWorking){
+    if(this.state.mode === "trabalhando" && this.state.minutes >= this.state.timeWorking){
       this.stop();
       this.setState({
-        mode: 'resting',
+        mode: "descansando",
       })
       this.start();
     }
 
-    if(this.state.mode === 'resting' && this.state.minutes >= this.state.timeResting){
+    if(this.state.mode === "descansando" && this.state.minutes >= this.state.timeResting){
       this.stop();
       this.setState({
-        mode: 'working',
+        mode: "trabalhando",
       })
       this.start();
     }
